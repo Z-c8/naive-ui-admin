@@ -351,6 +351,11 @@
   dependencies:
     "@types/yargs-parser" "*"
 
+"@vicons/ionicons4@^0.10.0":
+  version "0.10.0"
+  resolved "https://registry.yarnpkg.com/@vicons/ionicons4/-/ionicons4-0.10.0.tgz#73c0059b9765a22ad14306fefc8f2aa2728e4659"
+  integrity sha512-ES4PkHqojTWeQtXkZ+FunPx3E4GZgM7gVRO00/h0kQvR5BPjMum15Kh2cvvnUNb9i6JfUr+WXV44N3qwlfMN9g==
+
 "@vicons/ionicons5@^0.10.0":
   version "0.10.0"
   resolved "https://registry.yarnpkg.com/@vicons/ionicons5/-/ionicons5-0.10.0.tgz#94641a71850d9e251f1059b67da4c19326bce962"
