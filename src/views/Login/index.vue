@@ -1,69 +1,71 @@
 <template>
-    <div class="loginbg">
-        <n-grid x-gap="12" :cols="1">
-            <blockquote>
-                “云边有个小卖部，货架堆着岁月和夕阳，背后就是山。梦里小镇落雨，开花，起风，挂霜，甚至扬起烤红薯的香气。每个墙角都能够听见人们的说笑声。老人靠着躺椅假装睡着，小孩子偷走了一块糖，送给一个姑娘。泪水几点钟落地，飞鸟亦要去向何方人们聚和离，云朵来又往。讲故事的人，总有一个故事不愿讲，时光飞逝，悄悄话变成了纸张。”
-                <br />
-                <br />
-                <footer>
-                    ——
-                    <cite>云边有个小卖部</cite>
-                </footer>
-            </blockquote>
-            <n-card>
-                <n-form :model="formValue" :rules="rules" ref="formRef">
-                    <n-form-item label="账号" path="user.name">
-                        <n-input
-                            placeholder="Input Name"
-                            v-model:value="formValue.user.name"
-                        >
-                            <template #prefix>
-                                <n-icon size="16" color="#808695">
-                                    <PersonOutline />
-                                </n-icon>
-                            </template>
-                        </n-input>
-                    </n-form-item>
-                    <n-form-item label="密码" path="user.password">
-                        <n-input
-                            placeholder="Input Password"
-                            show-password-toggle
-                            v-model:value="formValue.user.password"
-                            type="password"
-                        >
-                            <template #prefix>
-                                <n-icon size="16" color="#808695">
-                                    <LockClosedOutline />
-                                </n-icon>
-                            </template>
-                        </n-input>
-                    </n-form-item>
-                </n-form>
-                <n-button
-                    type="primary"
-                    block
-                    @click="handleValidateButtonClick"
-                >
-                    登录
-                </n-button>
-                <div class="otherlogin">
-                    其他登录方式：
-                    <span class="othericon">
-                        <n-icon size="26" color="#18a058">
-                            <LogoGithub />
-                        </n-icon>
-                        <n-icon size="26" color="#18a058">
-                            <LogoFacebook />
-                        </n-icon>
-                    </span>
-                </div>
-            </n-card>
-        </n-grid>
-    </div>
+    <n-spin :show="show">
+        <div class="loginbg">
+            <n-grid x-gap="12" :cols="1">
+                <blockquote>
+                    “云边有个小卖部，货架堆着岁月和夕阳，背后就是山。梦里小镇落雨，开花，起风，挂霜，甚至扬起烤红薯的香气。每个墙角都能够听见人们的说笑声。老人靠着躺椅假装睡着，小孩子偷走了一块糖，送给一个姑娘。泪水几点钟落地，飞鸟亦要去向何方人们聚和离，云朵来又往。讲故事的人，总有一个故事不愿讲，时光飞逝，悄悄话变成了纸张。”
+                    <br />
+                    <br />
+                    <footer>
+                        ——
+                        <cite>云边有个小卖部</cite>
+                    </footer>
+                </blockquote>
+                <n-card>
+                    <n-form :model="formValue" :rules="rules" ref="formRef">
+                        <n-form-item label="账号" path="user.name">
+                            <n-input
+                                placeholder="Input Name"
+                                v-model:value="formValue.user.name"
+                            >
+                                <template #prefix>
+                                    <n-icon size="16" color="#808695">
+                                        <PersonOutline />
+                                    </n-icon>
+                                </template>
+                            </n-input>
+                        </n-form-item>
+                        <n-form-item label="密码" path="user.password">
+                            <n-input
+                                placeholder="Input Password"
+                                show-password-toggle
+                                v-model:value="formValue.user.password"
+                                type="password"
+                            >
+                                <template #prefix>
+                                    <n-icon size="16" color="#808695">
+                                        <LockClosedOutline />
+                                    </n-icon>
+                                </template>
+                            </n-input>
+                        </n-form-item>
+                    </n-form>
+                    <n-button
+                        type="primary"
+                        block
+                        @click="handleValidateButtonClick"
+                    >
+                        登录
+                    </n-button>
+                    <div class="otherlogin">
+                        其他登录方式：
+                        <span class="othericon">
+                            <n-icon size="26" color="#18a058">
+                                <LogoGithub />
+                            </n-icon>
+                            <n-icon size="26" color="#18a058">
+                                <LogoFacebook />
+                            </n-icon>
+                        </span>
+                    </div>
+                </n-card>
+            </n-grid>
+        </div>
+    </n-spin>
 </template>
 
 <script>
-import { defineComponent, ref } from "vue";
+import { defineComponent, ref, toRefs, reactive } from "vue";
 import { useMessage } from "naive-ui";
 import { useRoute, useRouter } from "vue-router";
 import {
@@ -78,7 +80,9 @@ export default defineComponent({
         const formRef = ref();
         const message = useMessage();
         const router = useRouter();
-
+        const state = reactive({
+            show: false,
+        });
         return {
             formRef,
             formValue: ref({
@@ -117,16 +121,21 @@ export default defineComponent({
                     },
                 },
             },
+            ...toRefs(state),
             handleValidateButtonClick(e) {
                 e.preventDefault();
+                state.show = true;
+
                 const messageReactive = message.loading("Verifying", {
                     duration: 0,
                 });
                 formRef.value.validate((errors) => {
                     if (!errors) {
-                        router.push("/");
-
                         message.success("登录成功");
+                        setTimeout(() => {
+                            router.push("/");
+                            state.show = false;
+                        }, 2000);
                     } else {
                         message.error("账号/密码错误！");
                         console.log("errors", errors);
@@ -150,7 +159,7 @@ export default defineComponent({
     left: 0;
     width: 100%;
     height: 100%;
-    z-index: -10;
+    // z-index: -10;
     zoom: 1;
     background-color: #fff;
     background-size: cover;
@@ -211,5 +220,9 @@ export default defineComponent({
         height: 837px;
         border-radius: 0px 10px 10px 0px;
     }
+}
+
+.n-spin-container {
+    height: 100% !important;
 }
 </style>

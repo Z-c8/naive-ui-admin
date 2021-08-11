@@ -1,7 +1,8 @@
 const path = require('path')
 
 module.exports = {
-    alias:{
+    base: '/',
+    alias: {
         '/@/': path.resolve(__dirname, './src')
     },
     css: {

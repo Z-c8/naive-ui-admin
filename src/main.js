@@ -33,6 +33,7 @@ import {
   NTabPane,
   NOl,
   NLi,
+  NSpin,
 } from "naive-ui";
 
 const naive = create({
@@ -63,6 +64,7 @@ const naive = create({
     NTabPane,
     NOl,
     NLi,
+    NSpin,
   ],
 });
 

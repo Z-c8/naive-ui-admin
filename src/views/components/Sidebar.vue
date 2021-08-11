@@ -130,6 +130,6 @@ export default defineComponent({
 </script>
 <style lang='less' scoped>
 :deep(.n-layout-toggle-button) {
-    top: 35px;
+    top: 35px !important;
 }
 </style>

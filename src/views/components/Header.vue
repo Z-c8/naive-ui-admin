@@ -25,7 +25,7 @@
 
 <script>
 import { defineComponent, ref, computed } from "vue";
-import { useRoute, RouterLink } from "vue-router";
+import { useRoute, RouterLink, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useMessage } from "naive-ui";
 export default defineComponent({
@@ -37,6 +37,7 @@ export default defineComponent({
         const showDropdownRef = ref(false);
         const store = useStore();
         const menu = computed(() => store.state.menu);
+        const router = useRouter();
 
         return {
             options: [
@@ -47,6 +48,7 @@ export default defineComponent({
             ],
             showDropdown: showDropdownRef,
             handleSelect(key) {
+                router.push("/login");
                 message.info(key);
             },
             handleClick() {
