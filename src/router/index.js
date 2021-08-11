@@ -5,17 +5,22 @@ import "nprogress/nprogress.css";
 //配置进度条
 NProgress.configure({
   easing: "ease", // 动画方式
-  speed: 500, // 递增进度条的速度
+  speed: 200, // 递增进度条的速度
   showSpinner: false, // 是否显示加载ico
   trickleSpeed: 200, // 自动递增间隔
   minimum: 0.3, // 初始化时的最小百分比
 });
 
-const Home = () => import(/* webpackChunkName: "group-user" */ "/@/views/Home/index.vue");
-const Login = () => import(/* webpackChunkName: "group-user" */ "/@/views/Login/index.vue");
-const Dashboard = () => import(/* webpackChunkName: "group-user" */ "/@/views/Dashboard/index.vue");
-const Tinymce = () => import(/* webpackChunkName: "group-user" */ "/@/views/Tinymce/index.vue");
-const Jsonediter = () => import(/* webpackChunkName: "group-user" */ "/@/views/Json/index.vue");
+const Home = () =>
+  import(/* webpackChunkName: "group-user" */ "/@/views/Home/index.vue");
+const Login = () =>
+  import(/* webpackChunkName: "group-user" */ "/@/views/Login/index.vue");
+const Dashboard = () =>
+  import(/* webpackChunkName: "group-user" */ "/@/views/Dashboard/index.vue");
+const Tinymce = () =>
+  import(/* webpackChunkName: "group-user" */ "/@/views/Tinymce/index.vue");
+const Jsonediter = () =>
+  import(/* webpackChunkName: "group-user" */ "/@/views/Json/index.vue");
 
 const routes = [
   {
@@ -77,7 +82,7 @@ router.beforeEach((to, from, next) => {
 });
 
 //页面加载结束
-router.afterEach(() => {
+router.afterEach((to, from, next) => {
   // 在即将进入新的页面组件前，关闭掉进度条
   NProgress.done();
 });

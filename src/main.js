@@ -32,7 +32,6 @@ import {
   NTabs,
   NTabPane,
   NSpin,
-  NLoadingBarProvider,
 } from "naive-ui";
 
 const naive = create({
@@ -62,7 +61,6 @@ const naive = create({
     NTabs,
     NTabPane,
     NSpin,
-    NLoadingBarProvider,
   ],
 });
 

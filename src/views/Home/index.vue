@@ -10,13 +10,13 @@
             <N-Tags />
             <div class="content">
                 <n-card>
-                    <router-view v-slot="{ Component }">
+                    <RouterView v-slot="{ Component }">
                         <transition name="fade-transform" mode="out-in">
                             <keep-alive :include="tagsList">
                                 <component :is="Component" />
                             </keep-alive>
                         </transition>
-                    </router-view>
+                    </RouterView>
                 </n-card>
             </div>
         </n-layout-content>
