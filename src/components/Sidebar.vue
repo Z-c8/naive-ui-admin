@@ -43,7 +43,7 @@ const menuOptions = [
     },
     {
         label: "组件",
-        key: "components",
+        key: "tinymce",
         path: "",
         icon: renderIcon(BookIcon),
         children: [

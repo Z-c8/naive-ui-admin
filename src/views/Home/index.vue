@@ -11,13 +11,7 @@
             <router-view v-slot="{ Component }">
                 <transition name="fade-transform" mode="out-in">
                     <keep-alive :include="tagsList">
-                        <div class="contentchild">
-                            <n-layout-content content-style="padding: 10px;">
-                                <n-card>
-                                    <component :is="Component" />
-                                </n-card>
-                            </n-layout-content>
-                        </div>
+                        <component :is="Component" />
                     </keep-alive>
                 </transition>
             </router-view>
@@ -30,9 +24,9 @@
 </template>
 
 <script>
-import NHeader from "/@/views/components/Header.vue";
-import NTags from "/@/views/components/Tags.vue";
-import NSidebar from "/@/views/components/Sidebar.vue";
+import NHeader from "/@/components/Header.vue";
+import NTags from "/@/components/Tags.vue";
+import NSidebar from "/@/components/Sidebar.vue";
 import { computed } from "vue";
 import { useStore } from "vuex";
 export default {

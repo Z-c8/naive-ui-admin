@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from "vue-router";
-import Home from "../views/Home/index.vue";
+// import Home from "../views/Home/index.vue";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
@@ -11,6 +11,12 @@ NProgress.configure({
   trickleSpeed: 200, // 自动递增间隔
   minimum: 0.3, // 初始化时的最小百分比
 });
+
+const Home = () => import(/* webpackChunkName: "group-user" */ "/@/views/Home/index.vue");
+const Login = () => import(/* webpackChunkName: "group-user" */ "/@/views/Login/index.vue");
+const Dashboard = () => import(/* webpackChunkName: "group-user" */ "/@/views/Dashboard/index.vue");
+const Tinymce = () => import(/* webpackChunkName: "group-user" */ "/@/views/components/tinymce.vue");
+const Echarts = () => import(/* webpackChunkName: "group-user" */ "/@/views/Echarts/index.vue");
 
 const routes = [
   {
@@ -31,37 +37,15 @@ const routes = [
         meta: {
           title: "系统首页",
         },
-        component: () =>
-          import(
-            /* webpackChunkName: "dashboard" */
-            "/@/views/Dashboard/index.vue"
-          ),
+        component: Dashboard,
       },
       {
-        path: "/components",
-        name: "components",
+        path: "/tinymce",
+        name: "tinymce",
         meta: {
-          title: "组件",
+          title: "富文本编辑器",
         },
-        component: () =>
-          import(
-            /* webpackChunkName: "dashboard" */
-            "/@/views/components/components.vue"
-          ),
-        children: [
-          {
-            path: "/tinymce",
-            name: "tinymce",
-            meta: {
-              title: "富文本编辑器",
-            },
-            component: () =>
-              import(
-                /* webpackChunkName: "dashboard" */
-                "/@/views/components/tinymce.vue"
-              ),
-          },
-        ],
+        component: Tinymce,
       },
       {
         path: "/echarts",
@@ -69,11 +53,7 @@ const routes = [
         meta: {
           title: "Echarts",
         },
-        component: () =>
-          import(
-            /* webpackChunkName: "dashboard" */
-            "/@/views/Echarts/index.vue"
-          ),
+        component: Echarts,
       },
     ],
   },
@@ -83,7 +63,7 @@ const routes = [
     meta: {
       title: "登录",
     },
-    component: () => import("/@/views/Login/index.vue"),
+    component: Login,
   },
 ];
 
