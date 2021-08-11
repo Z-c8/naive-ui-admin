@@ -1,7 +1,20 @@
-<template>tinymce</template>
+<template>
+    <div>
+        <TEditor ref="editor" v-model="value" />
+    </div>
+</template>
 
 <script>
-export default {};
+import TEditor from "./TEditor.vue";
+import { defineComponent, ref } from "vue";
+export default defineComponent({
+    components: { TEditor },
+    setup() {
+        return {
+            value: ref(""),
+        };
+    },
+});
 </script>
 
 <style>

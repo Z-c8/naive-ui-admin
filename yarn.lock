@@ -141,6 +141,11 @@
     estree-walker "^2.0.1"
     picomatch "^2.2.2"
 
+"@tinymce/tinymce-vue@^4":
+  version "4.0.4"
+  resolved "https://registry.yarnpkg.com/@tinymce/tinymce-vue/-/tinymce-vue-4.0.4.tgz#b47934f2d1e106ac9af7fa9ba0316a8c96ed314c"
+  integrity sha512-nLd96QK8P53dCm+oF6j2D5AXoZ9MCZyjybt7B98wXo2csfKd2Ozbjv9dlnRKCdEe/JZBG4KbwBEjXlwsaAGEvg==
+
 "@types/accepts@*":
   version "1.3.5"
   resolved "https://registry.yarnpkg.com/@types/accepts/-/accepts-1.3.5.tgz#c34bec115cfc746e04fe5a059df4ce7e7b391575"
