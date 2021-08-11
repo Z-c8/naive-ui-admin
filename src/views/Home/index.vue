@@ -8,19 +8,19 @@
                 <N-Header />
             </n-layout-header>
             <N-Tags />
-            <router-view v-slot="{ Component }">
-                <transition name="fade-transform" mode="out-in">
-                    <keep-alive :include="tagsList">
-                        <component :is="Component" />
-                    </keep-alive>
-                </transition>
-            </router-view>
+            <div class="content">
+                <n-card>
+                    <router-view v-slot="{ Component }">
+                        <transition name="fade-transform" mode="out-in">
+                            <keep-alive :include="tagsList">
+                                <component :is="Component" />
+                            </keep-alive>
+                        </transition>
+                    </router-view>
+                </n-card>
+            </div>
         </n-layout-content>
     </n-layout>
-    <!-- <n-layout class="wrapper-main" :native-scrollbar="true" bordered>
-            
-        </n-layout>
-    </n-layout> -->
 </template>
 
 <script>
@@ -55,5 +55,8 @@ export default {
     width: 100%;
     position: relative;
     overflow: hidden;
+}
+.content {
+    padding: 10px;
 }
 </style>

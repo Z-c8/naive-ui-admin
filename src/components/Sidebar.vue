@@ -52,6 +52,11 @@ const menuOptions = [
                 key: "tinymce",
                 path: "/tinymce",
             },
+            {
+                label: "Json调试",
+                key: "json",
+                path: "/json",
+            },
         ],
     },
     // {

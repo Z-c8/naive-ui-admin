@@ -1,5 +1,4 @@
 import { createRouter, createWebHistory } from "vue-router";
-// import Home from "../views/Home/index.vue";
 import NProgress from "nprogress";
 import "nprogress/nprogress.css";
 
@@ -15,8 +14,8 @@ NProgress.configure({
 const Home = () => import(/* webpackChunkName: "group-user" */ "/@/views/Home/index.vue");
 const Login = () => import(/* webpackChunkName: "group-user" */ "/@/views/Login/index.vue");
 const Dashboard = () => import(/* webpackChunkName: "group-user" */ "/@/views/Dashboard/index.vue");
-const Tinymce = () => import(/* webpackChunkName: "group-user" */ "/@/views/components/tinymce.vue");
-const Echarts = () => import(/* webpackChunkName: "group-user" */ "/@/views/Echarts/index.vue");
+const Tinymce = () => import(/* webpackChunkName: "group-user" */ "/@/views/Tinymce/index.vue");
+const Jsonediter = () => import(/* webpackChunkName: "group-user" */ "/@/views/Json/index.vue");
 
 const routes = [
   {
@@ -48,12 +47,12 @@ const routes = [
         component: Tinymce,
       },
       {
-        path: "/echarts",
-        name: "echarts",
+        path: "/json",
+        name: "json",
         meta: {
-          title: "Echarts",
+          title: "JSON",
         },
-        component: Echarts,
+        component: Jsonediter,
       },
     ],
   },
@@ -77,7 +76,7 @@ router.beforeEach((to, from, next) => {
   next();
 });
 
-// //页面加载结束
+//页面加载结束
 router.afterEach(() => {
   // 在即将进入新的页面组件前，关闭掉进度条
   NProgress.done();

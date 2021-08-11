@@ -1,17 +1,21 @@
 <template>
-    <div>
-        <TEditor ref="editor" v-model="value" />
-    </div>
+    <p>vue-json-editor</p>
 </template>
 
 <script>
-import TEditor from "./TEditor.vue";
 import { defineComponent, ref } from "vue";
 export default defineComponent({
-    components: { TEditor },
+    components: {  },
     setup() {
+        const json = ref("");
+        const onJsonChange = (val) => {
+            console.log(val);
+        };
+
         return {
             value: ref(""),
+            onJsonChange,
+            json,
         };
     },
 });

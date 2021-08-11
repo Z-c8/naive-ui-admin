@@ -31,9 +31,8 @@ import {
   NFormItemRow,
   NTabs,
   NTabPane,
-  NOl,
-  NLi,
   NSpin,
+  NLoadingBarProvider,
 } from "naive-ui";
 
 const naive = create({
@@ -62,9 +61,8 @@ const naive = create({
     NFormItemRow,
     NTabs,
     NTabPane,
-    NOl,
-    NLi,
     NSpin,
+    NLoadingBarProvider,
   ],
 });
 
