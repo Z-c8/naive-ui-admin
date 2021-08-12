@@ -19,8 +19,8 @@ const Dashboard = () =>
   import(/* webpackChunkName: "group-user" */ "/@/views/Dashboard/index.vue");
 const Tinymce = () =>
   import(/* webpackChunkName: "group-user" */ "/@/views/Tinymce/index.vue");
-const Jsonediter = () =>
-  import(/* webpackChunkName: "group-user" */ "/@/views/Json/index.vue");
+const Count = () =>
+  import(/* webpackChunkName: "group-user" */ "/@/views/Count/index.vue");
 
 const routes = [
   {
@@ -52,12 +52,12 @@ const routes = [
         component: Tinymce,
       },
       {
-        path: "/json",
-        name: "json",
+        path: "/count",
+        name: "count",
         meta: {
-          title: "JSON",
+          title: "Count",
         },
-        component: Jsonediter,
+        component: Count,
       },
     ],
   },

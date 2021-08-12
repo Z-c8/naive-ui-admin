@@ -53,9 +53,9 @@ const menuOptions = [
                 path: "/tinymce",
             },
             {
-                label: "Json调试",
+                label: "CountTo",
                 key: "json",
-                path: "/json",
+                path: "/count",
             },
         ],
     },

@@ -3,7 +3,6 @@ import App from "./App.vue";
 import router from "./router";
 import store from "./store/index";
 import "./assets/css/wrapper.less";
-
 import {
   // create naive ui
   create,
@@ -63,7 +62,6 @@ const naive = create({
     NSpin,
   ],
 });
-
 const app = createApp(App);
 app.directive("resize", {
   beforeMount(el, binding) {
