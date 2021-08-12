@@ -135,7 +135,7 @@ export default defineComponent({
                         setTimeout(() => {
                             router.push("/");
                             state.show = false;
-                        }, 2000);
+                        }, 1000);
                     } else {
                         message.error("账号/密码错误！");
                         console.log("errors", errors);
