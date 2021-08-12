@@ -62,6 +62,11 @@ const menuOptions = [
                 key: "mixin",
                 path: "/mixin",
             },
+            {
+                label: "返回顶部",
+                key: "backtop",
+                path: "/backtop",
+            },
         ],
     },
     // {

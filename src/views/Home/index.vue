@@ -80,4 +80,9 @@ export default {
 .content {
     padding: 10px;
 }
+.n-spin-container {
+    width: 100%;
+    height: 100% !important;
+    display: inline-grid;
+}
 </style>

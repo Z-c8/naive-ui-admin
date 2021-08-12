@@ -23,6 +23,8 @@ const Count = () =>
   import(/* webpackChunkName: "group-user" */ "/@/views/Count/index.vue");
 const Mixin = () =>
   import(/* webpackChunkName: "Mixin" */ "/@/views/Mixin/index.vue");
+const Backtop = () =>
+  import(/* webpackChunkName: "Mixin" */ "/@/views/Backtop/index.vue");
 
 const routes = [
   {
@@ -68,6 +70,14 @@ const routes = [
           title: "小组件",
         },
         component: Mixin,
+      },
+      {
+        path: "/backtop",
+        name: "backtop",
+        meta: {
+          title: "返回顶部",
+        },
+        component: Backtop,
       },
     ],
   },
