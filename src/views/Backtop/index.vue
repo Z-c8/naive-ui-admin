@@ -1,5 +1,5 @@
 <template>
-    <div>
+    <div class="backtop">
         <n-back-top :right="100" />
         <div class="index-module_textWrap_3ygOc">
             <p>
@@ -23,12 +23,19 @@
             </p>
         </div>
         <div class="index-module_mediaWrap_213jB">
-            <div class="index-module_contentImg_JmmC0" style="margin 0 auto">
+            <div
+                class="index-module_contentImg_JmmC0"
+                style="
+                    text-align: center;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                "
+            >
                 <img
                     class="index-module_large_1mscr"
                     src="/src/assets/images/1.jpg"
-                    width="640"
-                /><span class="bjh-image-caption"
+                    width="800"
+                /><span class="bjh-image-caption" style="display: block"
                     >《云边有个小卖部》写给每个人心中的山</span
                 >
             </div>
@@ -91,7 +98,14 @@
             </p>
         </div>
         <div class="index-module_mediaWrap_213jB">
-            <div class="index-module_contentImg_JmmC0">
+            <div
+                class="index-module_contentImg_JmmC0"
+                style="
+                    text-align: center;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                "
+            >
                 <img
                     class="index-module_large_1mscr"
                     src="/src/assets/images/2.jpg"
@@ -175,7 +189,14 @@
             </p>
         </div>
         <div class="index-module_mediaWrap_213jB">
-            <div class="index-module_contentImg_JmmC0">
+            <div
+                class="index-module_contentImg_JmmC0"
+                style="
+                    text-align: center;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                "
+            >
                 <img
                     class="index-module_large_1mscr"
                     src="/src/assets/images/3.jpg"
@@ -254,7 +275,14 @@
             </p>
         </div>
         <div class="index-module_mediaWrap_213jB">
-            <div class="index-module_contentImg_JmmC0">
+            <div
+                class="index-module_contentImg_JmmC0"
+                style="
+                    text-align: center;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                "
+            >
                 <img
                     class="index-module_large_1mscr"
                     src="/src/assets/images/4.jpg"
@@ -291,7 +319,14 @@
             </p>
         </div>
         <div class="index-module_mediaWrap_213jB">
-            <div class="index-module_contentImg_JmmC0">
+            <div
+                class="index-module_contentImg_JmmC0"
+                style="
+                    text-align: center;
+                    margin-top: 20px;
+                    margin-bottom: 20px;
+                "
+            >
                 <img
                     class="index-module_large_1mscr"
                     src="/src/assets/images/5.jpg"
@@ -364,5 +399,9 @@
 export default {};
 </script>
 
-<style>
+<style lang='less' scoped>
+.backtop {
+    width: 70%;
+    margin: 0% 15%;
+}
 </style>
