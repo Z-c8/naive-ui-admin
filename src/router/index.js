@@ -21,6 +21,8 @@ const Tinymce = () =>
   import(/* webpackChunkName: "group-user" */ "/@/views/Tinymce/index.vue");
 const Count = () =>
   import(/* webpackChunkName: "group-user" */ "/@/views/Count/index.vue");
+const Mixin = () =>
+  import(/* webpackChunkName: "Mixin" */ "/@/views/Mixin/index.vue");
 
 const routes = [
   {
@@ -55,9 +57,17 @@ const routes = [
         path: "/count",
         name: "count",
         meta: {
-          title: "Count",
+          title: "数字滚动",
         },
         component: Count,
+      },
+      {
+        path: "/mixin",
+        name: "mixin",
+        meta: {
+          title: "小组件",
+        },
+        component: Mixin,
       },
     ],
   },

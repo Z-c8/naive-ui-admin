@@ -1,5 +1,6 @@
 <template>
     <CountTo
+        class="counto"
         :startVal="0"
         :endVal="Infototal"
         :speed="1"
@@ -25,5 +26,9 @@ export default defineComponent({
 });
 </script>
 
-<style>
+<style lang='less' scoped>
+.counto {
+    font-size: 50px;
+    color: rgb(14, 122, 13);
+}
 </style>

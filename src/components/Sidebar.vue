@@ -54,8 +54,13 @@ const menuOptions = [
             },
             {
                 label: "CountTo",
-                key: "json",
+                key: "count",
                 path: "/count",
+            },
+            {
+                label: "小组件",
+                key: "mixin",
+                path: "/mixin",
             },
         ],
     },
