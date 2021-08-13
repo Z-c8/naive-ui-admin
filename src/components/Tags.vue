@@ -141,10 +141,20 @@ export default defineComponent({
         margin-right: 5px;
         color: #666;
     }
+    .tags-li.active {
+        background-color: #18a058;
+    }
 
     .tags-li.active .tags-li-title {
-        color: #18a058;
+        color: #ffffff;
     }
+
+    .tags-li.active {
+        :deep(.n-base-icon svg) {
+            color: #ffffff !important;
+        }
+    }
+
     .n-button {
         margin-top: 10px;
         height: 28px;

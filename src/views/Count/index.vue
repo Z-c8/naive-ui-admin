@@ -15,8 +15,7 @@ import CountTo from "../components/Count/index.vue";
 export default defineComponent({
     components: { CountTo },
     setup() {
-        const json = ref("");
-        const Infototal = ref(100);
+        const Infototal = ref(10000);
 
         return {
             value: ref(""),
