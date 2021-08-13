@@ -2,16 +2,16 @@
     <n-layout-sider
         class="sidebar"
         bordered
-        @click="collapsed"
+        :collapsed="collapsed"
         collapse-mode="width"
         :collapsed-width="64"
         :width="272"
-        show-trigger="arrow-circle"
         :native-scrollbar="false"
     >
         <n-menu
             :collapsed-width="64"
             @click="handlerouter"
+            :collapsed="collapsed"
             :collapsed-icon-size="22"
             :options="menuOptions"
             :render-label="renderMenuLabel"
@@ -112,10 +112,13 @@ export default defineComponent({
         const route = useRoute();
         const menuvalue = route.name;
         store.commit("handlematched", route.matched);
-        const collapsed = () => {
-            store.commit("handleCollapse", !store.state.collapse);
-        };
+        // const collapsed = () => {
+        //     store.commit("handleCollapse", !store.state.collapse);
+        // };
 
+        const collapsed = computed(() => store.state.collapse);
+
+        console.log(collapsed);
         const handlerouter = () => {
             setTimeout(() => {
                 store.commit("handlematched", route.matched);
@@ -144,7 +147,7 @@ export default defineComponent({
 });
 </script>
 <style lang='less' scoped>
-:deep(.n-layout-toggle-button) {
-    top: 35px !important;
-}
+// :deep(.n-layout-toggle-button) {
+//     top: 35px !important;
+// }
 </style>

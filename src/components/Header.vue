@@ -1,6 +1,14 @@
 <template>
     <div class="header">
-        <n-breadcrumb style="margin-left: 40px">
+        <n-icon
+            size="32"
+            class="collapsedIcon"
+            @click="collapseChange"
+            color="#18a058"
+        >
+            <MenuFoldOutlined />
+        </n-icon>
+        <n-breadcrumb>
             <n-breadcrumb-item v-for="(item, index) in menu" :key="index">
                 {{ item.meta.title }}
             </n-breadcrumb-item>
@@ -28,16 +36,23 @@ import { defineComponent, ref, computed } from "vue";
 import { useRoute, RouterLink, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useMessage } from "naive-ui";
+import { MenuFoldOutlined } from "@vicons/antd";
 export default defineComponent({
     components: {
         RouterLink,
+        MenuFoldOutlined,
     },
     setup() {
         const message = useMessage();
         const showDropdownRef = ref(false);
         const store = useStore();
         const menu = computed(() => store.state.menu);
+        const collapsed = computed(() => store.state.collapse);
         const router = useRouter();
+        // 侧边栏折叠
+        const collapseChange = () => {
+            store.commit("handleCollapse", !collapsed.value);
+        };
 
         return {
             options: [
@@ -54,9 +69,8 @@ export default defineComponent({
             handleClick() {
                 showDropdownRef.value = !showDropdownRef.value;
             },
-            collapseChage() {
-                this.$store.commit("handleCollapse", !this.collapse);
-            },
+            collapseChange,
+            collapsed,
             menu,
         };
     },
@@ -88,5 +102,19 @@ export default defineComponent({
 }
 .n-breadcrumb {
     float: left;
+    margin-left: 20px;
+}
+.collapsedIcon {
+    float: left;
+    cursor: pointer;
+    margin: 15px 0px 0px 15px;
+    transition-property: background-color;
+    transition-duration: 0.3s;
+    transition-timing-function: ease;
+    padding: 5px;
+    border-radius: 5px;
+}
+.collapsedIcon:hover {
+    background-color: #f0f0f0;
 }
 </style>
