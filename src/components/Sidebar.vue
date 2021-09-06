@@ -118,7 +118,6 @@ export default defineComponent({
 
         const collapsed = computed(() => store.state.collapse);
 
-        console.log(collapsed);
         const handlerouter = () => {
             setTimeout(() => {
                 store.commit("handlematched", route.matched);

@@ -29,6 +29,22 @@
             </n-space>
         </div>
     </div>
+    <div
+        class="handle-button"
+        :style="{
+            top: buttonTop + 'px',
+        }"
+        @click="activate('right')"
+    >
+        <n-icon size="30" color="#ffffff">
+            <SettingFilled />
+        </n-icon>
+    </div>
+    <n-drawer v-model:show="active" :width="width" :placement="placement">
+        <n-drawer-content title="斯通纳" closable>
+            《斯通纳》是美国作家约翰·威廉姆斯在 1965 年出版的小说。
+        </n-drawer-content>
+    </n-drawer>
 </template>
 
 <script>
@@ -36,11 +52,12 @@ import { defineComponent, ref, computed } from "vue";
 import { useRoute, RouterLink, useRouter } from "vue-router";
 import { useStore } from "vuex";
 import { useMessage } from "naive-ui";
-import { MenuFoldOutlined } from "@vicons/antd";
+import { MenuFoldOutlined, SettingFilled } from "@vicons/antd";
 export default defineComponent({
     components: {
         RouterLink,
         MenuFoldOutlined,
+        SettingFilled,
     },
     setup() {
         const message = useMessage();
@@ -49,6 +66,13 @@ export default defineComponent({
         const menu = computed(() => store.state.menu);
         const collapsed = computed(() => store.state.collapse);
         const router = useRouter();
+        //抽屉 Drawer
+        const active = ref(false);
+        const placement = ref("right");
+        const activate = (place) => {
+            active.value = true;
+            placement.value = place;
+        };
         // 侧边栏折叠
         const collapseChange = () => {
             store.commit("handleCollapse", !collapsed.value);
@@ -72,6 +96,12 @@ export default defineComponent({
             collapseChange,
             collapsed,
             menu,
+            active,
+            placement,
+            activate,
+            show: ref(true),
+            buttonTop: ref(250),
+            width: ref(400),
         };
     },
 });
@@ -116,5 +146,24 @@ export default defineComponent({
 }
 .collapsedIcon:hover {
     background-color: #f0f0f0;
+}
+
+.handle-button {
+    width: 48px;
+    height: 48px;
+    position: absolute;
+    right: 0px;
+    text-align: center;
+    font-size: 24px;
+    border-radius: 6px 0 0 6px !important;
+    z-index: 1;
+    pointer-events: auto;
+    cursor: pointer;
+    color: #fff;
+    background-color: #0e7a0d;
+    i {
+        font-size: 24px;
+        line-height: 48px;
+    }
 }
 </style>

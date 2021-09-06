@@ -61,6 +61,11 @@
                 </n-card>
             </n-grid>
         </div>
+        <div class="v">
+            <video class="f" id="bgvid" playsinline="" autoplay muted loop="">
+                <source src="/src/assets/mp4/bg.mp4" type="video/mp4" />
+            </video>
+        </div>
     </n-spin>
 </template>
 
@@ -149,17 +154,16 @@ export default defineComponent({
 </script>
 
 <style lang='less' scoped>
-.loginbg,
-:deep(.n-grid::before) {
-    background: url("/src/assets/images/bg.jpg") 0 / cover fixed;
-}
+// .loginbg,
+// :deep(.n-grid::before) {
+//     background: url("/src/assets/images/bg.jpg") 0 / cover fixed;
+// }
 .loginbg {
     position: fixed;
-    top: 0;
+    top: 20%;
     left: 0;
     width: 100%;
-    height: 100%;
-    // z-index: -10;
+    z-index: 1;
     zoom: 1;
     background-color: #fff;
     background-size: cover;
@@ -170,7 +174,8 @@ export default defineComponent({
         font-family: "微软雅黑";
         padding: 30px;
         font-size: 16px;
-        color: #fff !important;
+        // color: #fff !important;
+        background-color: #fff;
     }
     :deep(.n-ol) {
         font-family: "微软雅黑";
@@ -221,7 +226,40 @@ export default defineComponent({
         border-radius: 0px 10px 10px 0px;
     }
 }
-
+.f {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    min-width: 100%;
+    min-height: 100%;
+    width: auto;
+    height: auto;
+    z-index: 1;
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transition: 1s opacity;
+    transition: 1s opacity;
+    background-color: skyblue;
+}
+.v {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    // z-index: -10000;
+    background-color: skyblue;
+}
+.v:before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    display: block;
+    // z-index: -1000;
+    top: 0;
+    left: 0;
+    background: rgba(90, 20, 10, 0.2);
+}
 .n-spin-container {
     height: 100% !important;
 }

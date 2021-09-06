@@ -32,6 +32,9 @@ import {
   NTabPane,
   NSpin,
   NBackTop,
+  NConfigProvider,
+  NDrawer,
+  NDrawerContent,
 } from "naive-ui";
 
 const naive = create({
@@ -62,6 +65,9 @@ const naive = create({
     NTabPane,
     NSpin,
     NBackTop,
+    NConfigProvider,
+    NDrawer,
+    NDrawerContent,
   ],
 });
 const app = createApp(App);
